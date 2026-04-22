@@ -4,9 +4,12 @@ const API = axios.create({
   baseURL: "http://localhost:5000/api",
 });
 
-// Add admin token to requests if available
+// Add token to requests if available
 API.interceptors.request.use((config) => {
-  const token = localStorage.getItem("adminToken");
+  const adminToken = localStorage.getItem("adminToken");
+  const userToken = localStorage.getItem("token");
+  const token = adminToken || userToken;
+  
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
@@ -64,4 +67,23 @@ export const getAdminAnswers = (questionId) =>
   API.get(`/admin/questions/${questionId}/answers`);
 
 export const deleteAdminAnswer = (id) =>
-  API.delete(`/admin/answers/${id}`);
+  API.delete(`/answers/${id}`);
+
+// ─── Attendance ──────────────────────────────────────────
+export const createAttendance = (data) =>
+  API.post("/attendance/create", data);
+
+export const markAttendance = (data) =>
+  API.post("/attendance/mark", data);
+
+export const getLecturerSessions = () =>
+  API.get("/attendance/my-sessions");
+
+export const getSessionDetails = (sessionId) =>
+  API.get(`/attendance/session/${sessionId}`);
+
+export const endAttendanceSession = (sessionId) =>
+  API.post(`/attendance/session/${sessionId}/end`);
+
+export const downloadAttendanceExcel = (sessionId) =>
+  API.get(`/attendance/session/${sessionId}/excel`, { responseType: "blob" });

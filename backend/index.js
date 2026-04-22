@@ -1,9 +1,10 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import dotenv from "dotenv";
-import path from "path";
 import { fileURLToPath } from "url";
+import path from "path";
 
 import userRouter from "./routes/userRoutes.js";
 import virRoomRouter from "./routes/virRoomRoutes.js";
@@ -15,8 +16,7 @@ import roomResourceRouter from "./routes/roomResourceRoutes.js";
 import courseRouter from "./routes/courseRoutes.js";
 import moduleRouter from "./routes/moduleRoutes.js";
 import materialRouter from "./routes/materialRoutes.js";
-
-dotenv.config();
+import attendanceRouter from "./routes/attendenceRoutes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
@@ -55,6 +55,7 @@ app.use("/api/resources", roomResourceRouter);
 app.use("/api/courses", courseRouter);
 app.use("/api/modules", moduleRouter);
 app.use("/api/materials", materialRouter);
+app.use("/api/attendance", attendanceRouter);
 
 app.get("/", (req, res) => {
   res.send("Cliper Backend is Running & DB Connected! 🚀");

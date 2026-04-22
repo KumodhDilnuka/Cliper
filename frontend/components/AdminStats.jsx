@@ -51,7 +51,7 @@ const AdminStats = ({ stats }) => {
       {statCards.map((card, idx) => (
         <div
           key={idx}
-          className={`relative overflow-hidden group bg-white/60 backdrop-blur-md rounded-[2.5rem] border p-8 transition-all hover:shadow-2xl hover:-translate-y-1 ${themeClasses[card.color]}`}
+          className={`relative overflow-hidden group bg-white rounded-[2.5rem] border border-slate-100 p-8 transition-all hover:shadow-xl hover:-translate-y-1 ${themeClasses[card.color]}`}
         >
           {/* Subtle Background Glow */}
           <div className={`absolute top-0 right-0 w-24 h-24 rounded-full blur-[40px] opacity-20 -translate-y-12 translate-x-12 ${iconBgClasses[card.color].split(' ')[0]}`}></div>

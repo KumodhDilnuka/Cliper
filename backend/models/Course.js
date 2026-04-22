@@ -52,12 +52,7 @@ const courseSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   }
-});
-
-courseSchema.pre('save', function(next) {
-  this.updatedAt = Date.now();
-  next();
-});
+}, { timestamps: true });
 
 const Course = mongoose.model('Course', courseSchema);
 export default Course;

@@ -32,12 +32,10 @@ function AdminLoginPage() {
 
   return (
     <div className="min-h-screen bg-[#f8fafc] flex items-center justify-center p-6 font-sans relative overflow-hidden">
-      {/* Dynamic Background Elements */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-400/20 rounded-full blur-[120px] animate-pulse"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-400/20 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }}></div>
+
       
       <div className="w-full max-w-md relative z-10 animate-fadeInUp">
-        <div className="bg-white/70 backdrop-blur-2xl border border-white rounded-[2.5rem] shadow-2xl shadow-blue-900/10 p-10">
+        <div className="bg-white border border-slate-200 rounded-[2.5rem] shadow-2xl shadow-blue-900/10 p-10">
           <div className="text-center mb-10">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-blue-600 text-white shadow-lg shadow-blue-600/30 mb-6 group hover:rotate-12 transition-transform duration-500">
               <FiShield className="w-8 h-8" />

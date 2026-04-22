@@ -6,6 +6,7 @@ const AdminSidebar = ({ activeTab, setActiveTab }) => {
     { name: "Executive Summary", icon: <FiLayout />, id: "overview" },
     { name: "Manage Questions", icon: <FiFileText />, id: "questions" },
     { name: "Manage Answers", icon: <FiMessageSquare />, id: "answers" },
+    { name: "Lecture Materials", icon: <FiFileText />, id: "materials" },
   ];
 
   const bottomItems = [
@@ -14,7 +15,7 @@ const AdminSidebar = ({ activeTab, setActiveTab }) => {
   ];
 
   return (
-    <aside className="h-screen w-64 fixed left-0 top-0 pt-24 flex flex-col gap-2 p-6 border-r border-slate-200 bg-white/80 backdrop-blur-xl hidden lg:flex z-40">
+    <aside className="h-screen w-64 fixed left-0 top-0 pt-24 flex flex-col gap-2 p-6 border-r border-slate-200 bg-white hidden lg:flex z-40">
       {/* Navigation Section */}
       <div className="mb-6">
         <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">

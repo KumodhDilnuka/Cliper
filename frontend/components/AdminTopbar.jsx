@@ -14,7 +14,7 @@ const AdminTopbar = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-2xl border-b border-slate-200/50">
+    <header className="fixed top-0 w-full z-50 bg-white border-b border-slate-200 shadow-sm">
       <nav className="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
         {/* Left Section */}
         <div className="flex items-center gap-8">

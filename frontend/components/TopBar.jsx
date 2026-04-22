@@ -50,8 +50,8 @@ const TopBar = ({
 
   const headerClass =
     isLecturer || isStudent || isAdmin || isForum
-      ? "fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white/85 backdrop-blur-md shadow-[0px_10px_30px_rgba(25,28,30,0.06)]"
-      : "fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm";
+      ? "fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-white shadow-[0px_10px_30px_rgba(25,28,30,0.06)]"
+      : "fixed top-0 right-0 w-full md:w-[calc(100%-16rem)] h-16 z-40 bg-white border-b border-slate-200 shadow-sm";
 
   return (
     <header className={headerClass}>

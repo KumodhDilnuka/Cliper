@@ -54,12 +54,7 @@ const moduleSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   }
-});
-
-moduleSchema.pre('save', function(next) {
-  this.updatedAt = Date.now();
-  next();
-});
+}, { timestamps: true });
 
 const Module = mongoose.model('Module', moduleSchema);
 export default Module;

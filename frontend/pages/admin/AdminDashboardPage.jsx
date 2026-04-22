@@ -5,6 +5,7 @@ import AdminSidebar from "../../components/AdminSidebar";
 import AdminStats from "../../components/AdminStats";
 import AdminQuestionsList from "../../components/AdminQuestionsList";
 import AdminAnswersList from "../../components/AdminAnswersList";
+import AdminMaterialsManagement from "../../components/AdminMaterialsManagement";
 import toast from "react-hot-toast";
 import { getAdminStats, getAdminQuestions } from "../../services/api";
 
@@ -65,6 +66,7 @@ function AdminDashboardPage() {
                   {activeTab === "overview" && "Platform metrics and activity at a glance"}
                   {activeTab === "questions" && "Approve, reject or moderate platform questions"}
                   {activeTab === "answers" && "Drill down and manage detailed contributions"}
+                  {activeTab === "materials" && "Manage courses, modules and lecture materials"}
                   {activeTab === "settings" && "Configure global platform parameters"}
                 </p>
               </div>
@@ -81,7 +83,7 @@ function AdminDashboardPage() {
             {/* Content Rendering */}
             <div className="relative">
               {loading ? (
-                <div className="flex flex-col items-center justify-center py-32 bg-white/50 backdrop-blur-sm rounded-[2rem] border border-white shadow-xl shadow-slate-200/50">
+                <div className="flex flex-col items-center justify-center py-32 bg-white rounded-[2rem] border border-slate-100 shadow-sm">
                   <div className="spinner mb-4"></div>
                   <p className="text-slate-500 font-bold animate-pulse uppercase tracking-wider text-xs">Fetching records...</p>
                 </div>
@@ -89,7 +91,7 @@ function AdminDashboardPage() {
                 <div className="animate-fadeInUp">
                   {activeTab === "overview" && stats && (
                     <div className="space-y-10">
-                      <div className="bg-white/70 backdrop-blur-md rounded-[2.5rem] p-8 border border-white shadow-xl shadow-slate-200/50">
+                      <div className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm">
                         <div className="flex items-center justify-between mb-8 px-2">
                           <h2 className="text-2xl font-black text-slate-800 flex items-center gap-3">
                             <span className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center">
@@ -105,18 +107,24 @@ function AdminDashboardPage() {
                   )}
 
                   {activeTab === "questions" && (
-                    <div className="bg-white/70 backdrop-blur-md rounded-[2.5rem] p-8 border border-white shadow-xl shadow-slate-200/50">
+                    <div className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm">
                       <AdminQuestionsList questions={questions} />
                     </div>
                   )}
 
                   {activeTab === "answers" && (
-                    <div className="bg-white/70 backdrop-blur-md rounded-[2.5rem] p-8 border border-white shadow-xl shadow-slate-200/50">
+                    <div className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm">
                       <div className="mb-8 px-2">
                         <h2 className="text-2xl font-black text-slate-800">Review Answers</h2>
                         <p className="text-slate-500 text-sm font-medium">Moderate specific contributions across all active questions.</p>
                       </div>
                       <AdminAnswersList questions={questions} />
+                    </div>
+                  )}
+
+                  {activeTab === "materials" && (
+                    <div className="animate-fadeIn">
+                       <AdminMaterialsManagement />
                     </div>
                   )}
 

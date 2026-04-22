@@ -23,7 +23,7 @@ const Sidebar_lec = ({ onCreateRoom }) => {
     {
       name: "Attendance",
       icon: "qr_code_2",
-      path: "/attendance-dashboard",
+      path: "/lecturer/attendance",
     },
     {
       name: "Course Modules",

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css';
+import { Toaster } from 'react-hot-toast';
 
 import ProtectedRoute from '../components/ProtectedRoute';
 
@@ -27,6 +28,7 @@ import LecActiveRooms from '../pages/public/Lecturer/lec_active_rooms';
 import Resources from '../pages/public/Lecturer/lec_resources';
 import LecDash from '../pages/public/Lecturer/LecturerDashboard';
 import CourseManagement from '../pages/public/Lecturer/CourseManagement';
+import AttendanceManagement from '../pages/public/Lecturer/AttendanceManagement';
 
 // Admin pages
 import AdminDashboard from '../pages/admin/AdminDashboardPage';
@@ -59,6 +61,7 @@ function App() {
         <Route path="/lecturer/create-room" element={ <ProtectedRoute allowedRoles={["lecturer", "admin"]}> <LecturerCreateRoom /> </ProtectedRoute> }/>
         <Route path="/lecturer/resources" element={ <ProtectedRoute allowedRoles={["lecturer", "admin"]}> <Resources /> </ProtectedRoute> }/>
         <Route path="/lecturer/course-management" element={ <ProtectedRoute allowedRoles={["lecturer", "admin"]}> <CourseManagement /> </ProtectedRoute> }/>
+        <Route path="/lecturer/attendance" element={ <ProtectedRoute allowedRoles={["lecturer", "admin"]}> <AttendanceManagement /> </ProtectedRoute> }/>
         <Route path="/live-sessionLecturer" element={ <ProtectedRoute allowedRoles={["lecturer", "admin"]}> <LiveSessionLecturer /> </ProtectedRoute> }/>
         <Route path="/live-sessionLecturer/:roomId" element={ <ProtectedRoute allowedRoles={["lecturer", "admin"]}> <LiveSessionLecturer /> </ProtectedRoute> }/>
 
@@ -66,6 +69,7 @@ function App() {
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
       </Routes>
+      <Toaster position="top-right" reverseOrder={false} />
     </Router>
   );
 }
